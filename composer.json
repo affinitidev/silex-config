@@ -1,0 +1,30 @@
+{
+    "name": "affinitidev/silex-config",
+    "type": "library",
+    "description": "Advanced Config service provider for Silex",
+    "keywords": ["silex","config"],
+    "homepage": "http://brendan-bates.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brendan Bates",
+            "email": "me@brendan-bates.com",
+            "homepage": "http://brendan-bates.com",
+            "role": "Project Maintainer"
+        }
+    ],
+    "require": {
+        "symfony/config": "2.4.*",
+        "symfony/yaml": "2.4.*"
+    },
+    "require-dev": {
+        "silex/silex": "~1.1",
+        "phpunit/phpunit": "4.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Affiniti\\Config\\Tests\\": "Tests/",
+            "Affiniti\\Config\\": "Source/"
+        }
+    }
+}
