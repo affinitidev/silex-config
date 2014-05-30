@@ -25,6 +25,7 @@ abstract class Definition implements DefinitionInterface
      */
     public function getType() 
     {
-        return lcfirst(str_replace('Definition', '', basename(get_class($this))));
+		$reflect = new \ReflectionClass($this);
+        return lcfirst(str_replace('Definition', '', $reflect->getShortName()));
     }
 }
