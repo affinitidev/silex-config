@@ -2,5 +2,8 @@
 imports:
     - php
 
+filter:
+    excluded_paths: [vendor/*, Tests/*, Docs/*]
+
 tools:
     external_code_coverage: true
