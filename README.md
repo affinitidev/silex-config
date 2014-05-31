@@ -11,11 +11,11 @@ The ConfigServiceProvider, built by Affiniti Development, is a Silex Service Pro
 
 ## Build Status
 
-![Code Quality](https://scrutinizer-ci.com/g/affinitidev/silex-config/badges/quality-score.png?b=master) 
+[![Code Quality](https://scrutinizer-ci.com/g/affinitidev/silex-config/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/affinitidev/silex-config/?branch=master)
 
-![Code Coverage](https://scrutinizer-ci.com/g/affinitidev/silex-config/badges/coverage.png?b=master) 
+[![Code Coverage](https://scrutinizer-ci.com/g/affinitidev/silex-config/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/affinitidev/silex-config/?branch=master)
 
-![Build Status](https://travis-ci.org/affinitidev/silex-config.svg) 
+[![Build Status](https://travis-ci.org/affinitidev/silex-config.svg?branch=master)](https://travis-ci.org/affinitidev/silex-config)
 
 ## Documentation
 
