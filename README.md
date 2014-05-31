@@ -9,6 +9,12 @@ The ConfigServiceProvider, built by Affiniti Development, is a Silex Service Pro
 - Support for Custom Definitions, Loaders, and Cache Implementations.
 - Events allow for use with other Silex service providers.
 
+## Build Status
+
+![Code Quality](https://scrutinizer-ci.com/g/affinitidev/silex-config/badges/quality-score.png?b=master)
+![Code Coverage](https://scrutinizer-ci.com/g/affinitidev/silex-config/badges/coverage.png?b=master)
+![Build Status](https://travis-ci.org/affinitidev/silex-config.svg)
+
 ## Documentation
 
 Documentation is located [right here](Docs/index.md) in the `Docs` folder.  This includes installation instructions, quick start guide, and advanced features.  The documentation is currently in markdown format.
