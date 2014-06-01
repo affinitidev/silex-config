@@ -1,3 +1,12 @@
+#
+# Affiniti Development
+# 
+# Config Service Provider
+#
+# Link        http://github.com/affinitidev/silex-config
+# Copyright   Brendan Bates (http://www.brendan-bates.com)
+# License     http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
+
 test:
     value: 1
     other: 2

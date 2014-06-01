@@ -1,11 +1,12 @@
 <?php
-
 /**
- * Relax - The RESTful PHP Framework
+ * Affiniti Development
+ * 
+ * Config Service Provider
  *
- * @link http://bitbucket.org/brendanbates89/relax
- * @copyright Brendan Bates (http://www.brendan-bates.com)
- * @license http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
+ * @link        http://github.com/affinitidev/silex-config
+ * @copyright   Brendan Bates (http://www.brendan-bates.com)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
  */
 
 namespace Affiniti\Config\Tests\Cache;
