@@ -24,11 +24,19 @@ class Config implements \ArrayAccess
 {
     private $config;
     
+    /**
+     * Constructor.
+     * 
+     * @param array $config
+     */
     public function __construct(array $config)
     {
         $this->config = $config;
     }
     
+    /**
+     * {@inheritdoc}
+     */
     public function offsetExists($offset) 
     {
         if(isset($this->config[$offset])) {
@@ -38,6 +46,9 @@ class Config implements \ArrayAccess
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function offsetGet($offset) 
     {
         if(false === $this->offsetExists($offset)) {
@@ -47,11 +58,17 @@ class Config implements \ArrayAccess
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function offsetSet($offset, $value) 
     {
         $this->config[$offset] = $value;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function offsetUnset($offset) 
     {
         unset($this->config[$offset]);

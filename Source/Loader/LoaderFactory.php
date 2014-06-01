@@ -26,12 +26,28 @@ class LoaderFactory
     private $fileLocator;
     private $loaders;
     
+    /**
+     * 
+     * @param \Symfony\Component\Config\FileLocatorInterface $fileLocator
+     *      The file locator.
+     * 
+     * @param array $loaders
+     *      An array of valid \Affiniti\Config\Loader\LoaderInterface objects.
+     */
     public function __construct(FileLocatorInterface $fileLocator, array $loaders)
     {
         $this->loaders = $loaders;
         $this->fileLocator = $fileLocator;
     }
     
+    /**
+     * Returns a new DelegatingLoader which allows multiple loaders to be managed.
+     * 
+     * @return \Symfony\Component\Config\Loader\DelegatingLoader
+     *      The DelegatingLoader which contains all other defined loaders.
+     * 
+     * @throws \InvalidArgumentException
+     */
     public function newInstance()
     {
         // Set the file locators in each loader instance.

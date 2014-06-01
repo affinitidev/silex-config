@@ -12,7 +12,8 @@
 namespace Affiniti\Config\Exception;
 
 /**
- * 
+ * Abstract exception class used as a base class for all configuration related
+ * exceptions.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

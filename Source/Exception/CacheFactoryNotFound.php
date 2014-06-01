@@ -12,7 +12,7 @@
 namespace Affiniti\Config\Exception;
 
 /**
- * 
+ * Thrown if a cache factory of the specified type was not found.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

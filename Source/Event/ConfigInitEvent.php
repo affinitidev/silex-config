@@ -15,7 +15,8 @@ use Symfony\Component\EventDispatcher\Event;
 use Affiniti\Config\ConfigManager;
 
 /**
- * 
+ * Event representing the initialization of the config service provider.  This
+ * event is dispatched before any configurations are loaded.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

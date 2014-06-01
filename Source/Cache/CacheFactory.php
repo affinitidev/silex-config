@@ -11,9 +11,6 @@
 
 namespace Affiniti\Config\Cache;
 
-use Silex\Application;
-use Affiniti\Config\Exception\ConfigException;
-
 /**
  * Cache controller for the Config files.
  * 
@@ -24,12 +21,21 @@ class CacheFactory implements CacheFactoryInterface
     private $type;
     private $closure;
     
+    /**
+     * Constructor.
+     * 
+     * @param string $type
+     * @param \Closure $closure
+     */
     public function __construct($type, \Closure $closure)
     {
         $this->type = $type;
         $this->closure = $closure;
     }
     
+    /**
+     * {@inheritdoc}
+     */
     public function newInstance(\Silex\Application $app)
     {
         $factory = $this->closure;
@@ -37,6 +43,9 @@ class CacheFactory implements CacheFactoryInterface
         return $cache;
     }
     
+    /**
+     * {@inheritdoc}
+     */
     public function getType()
     {
         return $this->type;
