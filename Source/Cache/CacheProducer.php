@@ -15,7 +15,8 @@ use Silex\Application;
 use Affiniti\Config\Exception\ConfigException;
 
 /**
- * Cache controller for the Config files.
+ * This class is responsible for executing a cache factory and retrieving a
+ * CacheInterface object.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */
@@ -25,6 +26,12 @@ class CacheProducer
     private $app;
     private $type;
     
+    /**
+     * 
+     * @param array $cacheFactories
+     * @param \Silex\Application $app
+     * @param string $type
+     */
     public function __construct(array $cacheFactories, Application $app, $type)
     {
         $this->cacheFactories = $cacheFactories;
@@ -32,6 +39,14 @@ class CacheProducer
         $this->type = $type;
     }
     
+    /**
+     * Produces a CacheInterface object.
+     * 
+     * @return \Affiniti\Config\Cache\CacheInterface
+     * 
+     * @throws \InvalidArgumentException
+     * @throws \Affiniti\Config\Exception\CacheFactoryNotFound
+     */
     public function produce()
     {
         $cacheFactory = null;

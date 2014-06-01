@@ -13,22 +13,32 @@ namespace Affiniti\Config\Cache\Concrete;
 use Affiniti\Config\Cache\CacheInterface;
 
 /**
- * Default disabled cache implementation.  Always returns expired.
+ * Default disabled cache implementation.  Always returns expired and writes
+ * nothing.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */
 class DisabledCache implements CacheInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function expired() 
     {
         return true;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function get() 
     {
         return null;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function write(array $data) 
     {
         return;

@@ -34,21 +34,18 @@ class ConfigCompiler
     /**
      * Constructor.
      * 
-     * @param array $definitions
-     *      Array of definitions to load.
+     * @param \Affiniti\Config\ConfigManager $configManager
+     *      The ConfigManager object.
      * 
-     * @param array $filesToLoad
-     *      Array of files to load, where the key is the name of the file
-     *      and the value is the type of config.
-     * 
-     * @param \Symfony\Component\Config\Loader\DelegatingLoader $loader
-     *      Symfony Config Loader, which should be preconfigured to load config
-     *      files from a config directory.
+     * @param \Affiniti\Config\Loader\LoaderFactory $loaderFactory
+     *      Loader factory to produce the delegating loader.
      * 
      * @param \Symfony\Component\Config\Definition\Processor $processor
-     *      Instance of the Symfony Configuration Processor.
+     *      Symfony configuration processor.
      * 
-     * @throws \Budget\Exception\ConfigException
+     * @param \Affiniti\Config\Cache\CacheProducer $cacheFactory
+     *      Cache producer.
+     * 
      */
     public function __construct(
             ConfigManager $configManager,
@@ -65,7 +62,7 @@ class ConfigCompiler
     /**
      * Builds the configuration tree out of all of the App configuration definitions.
      * 
-     * @return array
+     * @return array Array of configuration values.
      */
     public function compile()
     {

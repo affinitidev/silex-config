@@ -12,11 +12,10 @@
 namespace Affiniti\Config\Event;
 
 use Symfony\Component\EventDispatcher\Event;
-
 use Affiniti\Config\Config;
 
 /**
- * 
+ * This event is dispatched after the config has been loaded.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

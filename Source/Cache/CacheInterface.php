@@ -12,7 +12,7 @@
 namespace Affiniti\Config\Cache;
 
 /**
- * 
+ * Represents a cache for storing an array of data.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

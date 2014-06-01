@@ -12,7 +12,7 @@
 namespace Affiniti\Config\Exception;
 
 /**
- * 
+ * Thrown when a configuration entry is not found.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

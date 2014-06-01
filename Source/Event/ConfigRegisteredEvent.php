@@ -14,7 +14,7 @@ namespace Affiniti\Config\Event;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
- * 
+ * This even is dispatched directly after the service provider is registered.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

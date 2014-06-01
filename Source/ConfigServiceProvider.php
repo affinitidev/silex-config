@@ -75,9 +75,6 @@ class ConfigServiceProvider implements ServiceProviderInterface
         
     }
     
-    /**
-     * Set up the configuration manager and configuration definitions.
-     */
     private function setupConfig(\Silex\Application $app, $configName)
     {        
         $app[$configName . '.manager'] = $app->share(
@@ -92,9 +89,11 @@ class ConfigServiceProvider implements ServiceProviderInterface
                 $paths = $app[$configName . '.paths'];
                 if(null === $paths || count($paths) === 0) {
                     throw ConfigException::pathsNotSpecified();
-                }
-                
+                }                
                 $locator = new FileLocator($paths);
+                
+                // Dispatch the event so that other providers can add their
+                // definitions.
                 $this->dispatchInitEvent($app);
                 
                 // Get some app definitions.
@@ -120,9 +119,6 @@ class ConfigServiceProvider implements ServiceProviderInterface
         );
     }
     
-    /**
-     * Register the initialization event.
-     */
     private function setupEvents(\Silex\Application $app)
     {
         $app['dispatcher']->addListener(Events::CONFIG_INIT,

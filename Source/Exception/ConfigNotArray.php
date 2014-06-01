@@ -12,7 +12,7 @@
 namespace Affiniti\Config\Exception;
 
 /**
- * 
+ * Thrown when the loaded configuration is not an array.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

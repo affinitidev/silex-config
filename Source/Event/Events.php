@@ -12,7 +12,7 @@
 namespace Affiniti\Config\Event;
 
 /**
- * 
+ * Class with events defined for the config service provider.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

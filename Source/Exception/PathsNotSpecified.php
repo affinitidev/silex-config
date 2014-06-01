@@ -12,7 +12,7 @@
 namespace Affiniti\Config\Exception;
 
 /**
- * 
+ * Thrown when the configuration is loaded, but no paths were specified.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

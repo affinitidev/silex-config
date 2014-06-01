@@ -18,7 +18,21 @@ namespace Affiniti\Config\Cache;
  */
 interface CacheFactoryInterface
 {
+    /**
+     * Returns a new instance of a CacheInterface object.
+     * 
+     * @param \Silex\Application $app
+     *      The Silex application.
+     * 
+     * @return \Affiniti\Config\Cache\CacheInterface
+     */
     public function newInstance(\Silex\Application $app);
     
+    /**
+     * Returns the cache type.
+     * 
+     * @return string
+     *      The cache type.
+     */
     public function getType();
 }

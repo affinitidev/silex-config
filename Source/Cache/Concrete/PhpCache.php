@@ -15,7 +15,7 @@ use Symfony\Component\Config\ConfigCache;
 use Affiniti\Config\Cache\CacheInterface;
 
 /**
- * Cache controller for the Config files.
+ * Implements a cache using an included PHP file.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */
@@ -24,22 +24,37 @@ class PhpCache implements CacheInterface
     private $fileCache;
     private $cachePath;
     
+    /**
+     * Constructor.
+     * 
+     * @param \Symfony\Component\Config\ConfigCache $fileCache
+     * @param string $cachePath
+     */
     public function __construct(ConfigCache $fileCache, $cachePath)
     {
         $this->fileCache = $fileCache;
         $this->cachePath = $cachePath;
     }
     
+    /**
+     * {@inheritdoc}
+     */
     public function expired() 
     {
         return (false === $this->fileCache->isFresh());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function get() 
     {         
         return require $this->cachePath;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function write(array $data) 
     {
         $content = '<?php return ' . var_export($data, true) . ';';

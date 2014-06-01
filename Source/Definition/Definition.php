@@ -14,7 +14,8 @@ namespace Affiniti\Config\Definition;
 use Affiniti\Config\Definition\DefinitionInterface;
 
 /**
- * Abstract definition implementation.  Allows the 
+ * Abstract definition implementation.  Allows the getType method to be
+ * automatically satisfied.
  * 
  * @author Brendan Bates <me@brendan-bates.com>
  */

@@ -21,5 +21,11 @@ use Symfony\Component\Config\FileLocatorInterface;
  */
 interface LoaderInterface extends BaseLoaderInterface
 {
+    /**
+     * Sets the locator used to locate files.
+     * 
+     * @param \Symfony\Component\Config\FileLocatorInterface $locator
+     *      The file locator to set.
+     */
     public function setLocator(FileLocatorInterface $locator);
 }

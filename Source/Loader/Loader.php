@@ -22,11 +22,18 @@ use Symfony\Component\Config\FileLocatorInterface;
  */
 abstract class Loader extends FileLoader implements LoaderInterface
 {
+    /**
+     * Constructor.  Ovverides the default Symfony FileLoader constructor, which
+     * accepts a locator.
+     */
     public function __construct() 
     {
         
     }
     
+    /**
+     * {@inheritdoc}
+     */
     public function setLocator(\Symfony\Component\Config\FileLocatorInterface $locator)
     {
         $this->locator = $locator;

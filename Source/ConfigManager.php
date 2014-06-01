@@ -32,7 +32,10 @@ class ConfigManager
      * Adds a configuration file to be processed.
      * 
      * @param string $filename
+     *      Name of the file, including extension.
+     * 
      * @param string $type
+     *      Type of the configuration file.
      */
     public function addFile($filename, $type) 
     {
@@ -47,6 +50,7 @@ class ConfigManager
      * Adds a Configuration Definition.
      * 
      * @param \Affiniti\Config\DefinitionInterface $definition
+     *      The definition to add.
      */
     public function addDefinition(DefinitionInterface $definition)
     {
@@ -56,7 +60,8 @@ class ConfigManager
     /**
      * Adds a Configuration file loader.
      * 
-     * @param \Symfony\Component\Config\Loader\LoaderInterface $loader
+     * @param \Affiniti\Config\Loader\LoaderInterface $loader
+     *      The file loader to add.
      */
     public function addLoader(LoaderInterface $loader)
     {
@@ -66,8 +71,8 @@ class ConfigManager
     /**
      * Adds a Cache factory.
      * 
-     * @param type $type
-     * @param \Closure $cacheFactory
+     * @param \Affiniti\Config\Cache\CacheFactory $factory
+     *      The cache factory.
      */
     public function addCacheFactory(CacheFactory $factory)
     {
@@ -97,7 +102,7 @@ class ConfigManager
     /**
      * Returns an array of specified config loaders.
      * 
-     * @return type
+     * @return array
      */
     public function getLoaders()
     {
