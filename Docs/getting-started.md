@@ -21,7 +21,7 @@ In order to load this config file, it can be added to the list of files to load 
 
     $app['config.manager']->addFile('AppConfig.yml', 'app');
 
-This will add the `AppConfig.yml` file to the list of files to be loaded. 
+This will add the `AppConfig.yml` file to the list of files to be loaded.  The second parameter `app` is the config type - it will be used to reference the config file later on. 
 
 #### Loading YAML Files
 
@@ -54,7 +54,9 @@ Above, when we added the configuration file `AppConfig.yml`, we added it with th
 	$environment    = $appConfig['environment'];
     $database       = $appConfig['database'];
 
-Loading two files of the same type will result in the values being merged together in the array.  The merge is done using the native PHP function `array_merge_recursive`.
+Loading two files of the same type will result in the values being merged together in the array.  If the configurations aren't being validated by a definition, then the merge is done using the native PHP function `array_merge_recursive`.
+
+The next section will discuss validating using definitions.
 
 <p />
 

@@ -6,7 +6,7 @@ Enabling the ConfigServiceProvider in your project is just as easy as any other 
         'config.paths' = [ __DIR__ . '/config' ]
     ));
 
-Now, all config objects can be accessed through Pimple.
+Now, all config objects can be accessed through the Pimple container.
 
 ### Parameters
 
@@ -39,13 +39,21 @@ The manager of various configuration definitions.
 
 ##### Methods
 
-`ConfigManager::addConfig($file, $definition = null);`
+`addFile($file, $definition = null);`
 
-`ConfigManager::addDefinition(Affiniti\Config\Definition\DefinitionInterface $definition);`
+`addDefinition(Affiniti\Config\Definition\DefinitionInterface $definition);`
 
-`ConfigManager::addLoader(Affiniti\Config\Loader\LoaderInterface $loader);`
+`addLoader(Affiniti\Config\Loader\LoaderInterface $loader);`
 
-`ConfigManager::addCacheFactory($type, \Closure $cacheFactory);`
+`addCacheFactory(Affiniti\Config\Cache\CacheFactoryInterface $factory);`
+
+`getFiles()`
+
+`getDefinitions()`
+
+`getLoaders()`
+
+`getCacheFactories()`
 
 ##### Notes
 - If a provider wants access to the `config.manager` service, it can be accessed through the `ConfigInitEvent` of the Silex dispatcher.  See the [Usage with Providers](providers.md) section for more details.  This is useful if a provider wants to add its own definitions, loaders, or caches.

@@ -27,7 +27,7 @@ The `ConfigRegisteredEvent` has one method: `getConfigName()`.  This allows the 
 
 ### The `ConfigInitEvent`
 
-The `ConfigInitEvent` is fired when after the `config` service is accessed, but before any configuration files are loaded.  This event allows providers to insert their own config files, definitions, loaders, and cache factories into the `config.manager` service.
+The `ConfigInitEvent` is fired after the `config` service is accessed, but before any configuration files are loaded.  This event allows providers to insert their own config files, definitions, loaders, and cache factories into the `config.manager` service.
 
 The `ConfigInitEvent` has one method: `getConfigManager()`.  This allows the listener to use the config manager as it needs.  The following code adds a new loader and definition to the `config.manager` service:
 
@@ -59,5 +59,5 @@ The `ConfigLoadedEvent` is fired directly after the configuration files are load
 <p />
 
 <div style="text-align:center">
-  <a href="caching.md">&lt; Prev (Caching)</a> | <a href="testing.md">Next (Unit Testing) &gt;</a>
+  <a href="caching.md">&lt; Prev (Caching)</a> | <a href="unit-testing.md">Next (Unit Testing) &gt;</a>
 </div> 
