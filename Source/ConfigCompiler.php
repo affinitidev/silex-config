@@ -13,6 +13,7 @@ namespace Affiniti\Config;
 
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Affiniti\Config\Loader\LoaderFactory;
 use Affiniti\Config\Exception\ConfigException;
 use Affiniti\Config\Cache\CacheProducer;
@@ -94,7 +95,11 @@ class ConfigCompiler
             $config[$type] = [];
             
             if(false === empty($rawConfig)) {
-                $config[$type] = $this->processor->processConfiguration($definition, $rawConfig);
+                try {
+                    $config[$type] = $this->processor->processConfiguration($definition, $rawConfig);
+                } catch(InvalidConfigurationException $ex) {
+                    throw ConfigException::validationError($ex->getMessage());
+                }
             }            
         }
         

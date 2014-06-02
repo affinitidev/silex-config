@@ -38,4 +38,9 @@ abstract class ConfigException extends \Exception
     {
         return new PathsNotSpecified("No configuration paths have been specified - cannot read configurations.");
     }
+    
+    public static function validationError($message)
+    {
+        return new ValidationError($message);
+    }
 }
