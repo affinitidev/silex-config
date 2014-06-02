@@ -39,9 +39,7 @@ If two files of the same type are defined, they will be merged.  However, this m
 
 #### Invalid Configurations
 
-When the configuration is processed, it may be invalid.  The following exception will be thrown if an invalid configuration is processed:
-
-    Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+When the configuration is processed, it may be invalid.  The `Affiniti\Config\Exception\ValidationError` exception will be thrown if an invalid configuration is processed.  The message contains details regarding the invalid configuration.
 
 It may be useful to wrap your first access to the config container in a `try/catch` block to catch a possible invalid configuration.
 

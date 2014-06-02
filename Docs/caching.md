@@ -22,9 +22,9 @@ This cache can be used by setting the cache type to `php` when registering the p
 
 The PHP File cache will dump the processed configuration array to a PHP file.  On subsequent requests, this PHP file will be included (instead of the configuration files being loaded and processed).
 
-The `config.cache.php` parameter must also be specified.  This should point to a specific file where the cache should be read from and written to.  This file should be writable and readable by the web server running the Silex application.
+The `config.cache.path` parameter must also be specified.  This should point to a specific file where the cache should be read from and written to.  This file should be writable and readable by the web server running the Silex application.
 
-**Important Note**: This implementation of the cache does not provide any expiration, since config files do not often change.  It is recommended that it not be used in development.  In production, the file should always be deleted whenever configurations are changed.
+**Important Note**: This implementation of the cache **does not** provide any expiration, since config files do not often change.  It is recommended that it not be used in development.  The cache file should always be deleted whenever configurations are changed.
 
 ### Implementing a Custom Cache
 
@@ -36,11 +36,13 @@ Implementing a custom cache is fairly easy, the `Affiniti\Config\Cache\CacheInte
 	    public function get();
 	}
 
+The `expired` method determines whether or not the current cache is valid.  The `write` method writes an array to the cache, while the `get` method returns the configuration array from cache.
+
 #### Creating a Cache Factory
 
-Normally, a cache may require some kind of parameters to be instantiated - such as a database connection, or a file path.  The application only uses a single type of cache, so it is desirable to only load the one being used.  This is why Cache Factories are used.
+Normally, a cache may require some kind of parameters to be instantiated - such as a database connection, or a file path.  Since the application only uses a single type of cache at once, it is desirable to only instantiate the one being used.  This is why Cache Factories are used.
 
-A Cache Factory is an object that implements `Affiniti\Config\Cache\CacheFactoryInterface`.  This has two methods: `getType()` and `newInstance(\Silex\Application $app)`.  An implementation of a Cache Factory is available at `Affiniti\Config\Cache\CacheFactory`.  It allows the Cache Factory to be created using a closure:
+A Cache Factory is an object that implements `Affiniti\Config\Cache\CacheFactoryInterface`.  This has two methods: `getType()` and `newInstance(\Silex\Application $app)`.  An implementation of a Cache Factory is available at `Affiniti\Config\Cache\CacheFactory`.  It allows the Cache Factory to be created using a closure.  The first parameter is the name of the cache factory.  Here's an example:
 
     $cacheFactory = new CacheFactory('my_cache', 
         function(\Silex\Application $app) {
