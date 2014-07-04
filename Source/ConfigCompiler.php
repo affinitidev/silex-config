@@ -17,7 +17,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Affiniti\Config\Loader\LoaderFactory;
 use Affiniti\Config\Exception\ConfigException;
 use Affiniti\Config\Cache\CacheProducer;
-use Affiniti\Config\Cache\CacheInterface;
 
 /**
  * Config Service Provider.  Exposes the Symfony Config component to the
@@ -67,8 +66,6 @@ class ConfigCompiler
      */
     public function compile()
     {
-        $config = [];
-        
         $loader = $this->loaderFactory->newInstance();        
         $cache = $this->cacheFactory->produce();
         
