@@ -60,6 +60,7 @@ class ConfigServiceProvider implements ServiceProviderInterface
         $app[$this->configName . '.paths'] = [];
         $app[$this->configName . '.cache.path'] = null;
         $app[$this->configName . '.cache.type'] = 'disabled';
+        $app[$this->configName . '.autoload'] = true;
         
         $this->dispatchRegisteredEvent($app, $this->configName);
         
@@ -72,7 +73,12 @@ class ConfigServiceProvider implements ServiceProviderInterface
      */
     public function boot(\Silex\Application $app) 
     {
-        
+        // If config autoloading is set, perform the load by accessing
+        // the continer.
+        if(true === $app[$this->configName . '.autoload'])
+        {
+            $config = $app[$this->configName];
+        }
     }
     
     private function setupConfig(\Silex\Application $app, $configName)

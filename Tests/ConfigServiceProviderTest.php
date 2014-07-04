@@ -35,6 +35,7 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(isset($app['Test.Config.cache.path']));
         $this->assertTrue(isset($app['Test.Config.cache.type']));
         $this->assertTrue(isset($app['Test.Config']));
+        $this->assertTrue(isset($app['Test.Config.autoload']));
     }
     
     public function testDefaultOptions()
@@ -45,6 +46,7 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(array() === $app['config.paths']);
         $this->assertTrue(null === $app['config.cache.path']);
         $this->assertTrue('disabled' === $app['config.cache.type']);
+        $this->assertTrue(true === $app['config.autoload']);
     }
     
     public function testLoadWithoutPaths()
@@ -207,10 +209,35 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
         }
     }
     
-    public function testBoot()
+    public function testBootWithoutAutoloading()
     {
+        $loaded = false;
+        
         $app = new Application();
+        $app['config.autoload'] = false;
+        $app['config'] = function() use($loaded) {
+            $loaded = true;
+        };
+        
         $provider = new ConfigServiceProvider();
         $provider->boot($app);
+        
+        $this->assertFalse($loaded);
+    }
+    
+    public function testBootWithAutoloading()
+    {
+        $loaded = false;
+        
+        $app = new Application();
+        $app['config.autoload'] = true;
+        $app['config'] = function() use(&$loaded) {
+            $loaded = true;
+        };
+        
+        $provider = new ConfigServiceProvider();
+        $provider->boot($app);
+        
+        $this->assertTrue($loaded);
     }
 }

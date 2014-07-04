@@ -15,6 +15,7 @@ The `SilexConfigProvider` can take a few parameters when calling the Silex `regi
 - `config.paths`: This is an array of paths to locate config files.  **Required**.
 - `config.cache.path`: This is the directory where the cache files will be stored.  This should be writable by the application.
 - `config.cache.type`: This is the type of cache for the Cache Factory to produce.  Default is `disabled`.
+- `config.autoload`: This determines if the configurations should be automatically compiled before the Silex Request is processed.  Default is `true`.
 
 ### Config Name
 
