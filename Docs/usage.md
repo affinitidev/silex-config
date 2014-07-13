@@ -72,6 +72,7 @@ This service has no methods, it acts as an `\ArrayAccess` container.
 
 ##### Notes
 - Configuration files will not be loaded until the first time the `config` service is accessed.
+- If the `config.autload` parameter is set to `true`, then the configuration files will be loaded when the request is processed. 
 - All configuration files, definitions, loaders, and cache factories should be defined before the `config` service is accessed.
 - Attempting to get an undefined top-level config entry (e.g. `$app['config']['db']`) will result in a `Affiniti\Config\Exception\ConfigNotFound` exception being raised.  An undefined non top-level config entry (e.g. `$app['config']['db']['host']`) will result in a PHP  undefined index error.
 

@@ -46,7 +46,7 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(array() === $app['config.paths']);
         $this->assertTrue(null === $app['config.cache.path']);
         $this->assertTrue('disabled' === $app['config.cache.type']);
-        $this->assertTrue(true === $app['config.autoload']);
+        $this->assertTrue(false === $app['config.autoload']);
     }
     
     public function testLoadWithoutPaths()
