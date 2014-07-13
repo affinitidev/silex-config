@@ -60,7 +60,7 @@ class ConfigServiceProvider implements ServiceProviderInterface
         $app[$this->configName . '.paths'] = [];
         $app[$this->configName . '.cache.path'] = null;
         $app[$this->configName . '.cache.type'] = 'disabled';
-        $app[$this->configName . '.autoload'] = true;
+        $app[$this->configName . '.autoload'] = false;
         
         $this->dispatchRegisteredEvent($app, $this->configName);
         

@@ -47,6 +47,8 @@ The configuration files are lazy loaded; this means that they are not loaded unt
 
 Because of this, it is necessary to make sure that all configuration files are added before the `config` service is accessed.
 
+If the parameter `config.autoload` is set to `true`, then configurations will be automatically loaded when the request is processed.
+
 Above, when we added the configuration file `AppConfig.yml`, we added it with the type `app`.  This means the configuration values can be read from the `app` index under the config service: 
 
     $appConfig = $app['config']['app'];
