@@ -13,6 +13,7 @@ namespace Affiniti\Config\Tests;
 
 use Silex\Application;
 use Affiniti\Config\ConfigServiceProvider;
+use Affiniti\Config\ConfigFile;
 use Affiniti\Config\Tests\Fixtures\Definitions\TestDefinition;
 use Affiniti\Config\Exception\ConfigNotFound;
 use Affiniti\Config\Exception\PathsNotSpecified;
@@ -71,7 +72,8 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
             'config.paths' => [ $path ]
         ));
         
-        $app['config.manager']->addFile('yaml_test.yml', 'test');
+        $file = new ConfigFile('yaml_test.yml', 'test');
+        $app['config.manager']->addFile($file);
         
         $testArray = [
             'test' => [
@@ -104,7 +106,8 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
             'config.paths' => [ $path ]
         ));
         
-        $app['config.manager']->addFile('yaml_test.yml', 'test');
+        $file = new ConfigFile('yaml_test.yml', 'test');
+        $app['config.manager']->addFile($file);
         $app['config.manager']->addDefinition(new TestDefinition());
         
         $testArray = [
@@ -142,7 +145,8 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
             'config.cache.type' => 'php'
         ));
                 
-        $app['config.manager']->addFile('yaml_test.yml', 'test');
+        $file = new ConfigFile('yaml_test.yml', 'test');
+        $app['config.manager']->addFile($file);
         $app['config.manager']->addDefinition(new TestDefinition());
 
         // Tests that it loads the cache file (has an extra entry than the YAML file).
@@ -189,7 +193,8 @@ class ConfigServiceProviderTest extends \PHPUnit_Framework_TestCase
             'config.cache.type' => 'php'
         ));
                 
-        $app['config.manager']->addFile('yaml_test.yml', 'test');
+        $file = new ConfigFile('yaml_test.yml', 'test');
+        $app['config.manager']->addFile($file);
         $app['config.manager']->addDefinition(new TestDefinition());
 
         // Tests that it writes the cache file.
