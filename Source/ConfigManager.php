@@ -31,19 +31,12 @@ class ConfigManager
     /**
      * Adds a configuration file to be processed.
      * 
-     * @param string $filename
+     * @param \Affiniti\Config\ConfigFile $configFile
      *      Name of the file, including extension.
-     * 
-     * @param string $type
-     *      Type of the configuration file.
      */
-    public function addFile($filename, $type) 
-    {
-        if(null === $filename || null === $type) {
-            throw new \InvalidArgumentException("Null filename is not allowed.");
-        }
-        
-        $this->files[] = new ConfigFile($filename, $type);
+    public function addFile(ConfigFile $configFile) 
+    {        
+        $this->files[] = $configFile;
     }
     
     /**

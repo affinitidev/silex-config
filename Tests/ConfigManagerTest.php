@@ -26,8 +26,9 @@ class ConfigManagerTest extends \PHPUnit_Framework_TestCase
     {
         $manager = new ConfigManager();
         $exception = false;
+        $file = new ConfigFile('testFile1.yml', 'definition');
         try {
-            $manager->addFile('testFile1.yml', 'definition');
+            $manager->addFile($file);
         } catch(\InvalidArgumentException $e)
         {
             $this->fail('Exception raised: ' . $e->getMessage());
@@ -79,19 +80,6 @@ class ConfigManagerTest extends \PHPUnit_Framework_TestCase
         foreach($manager->getCacheFactories() as $factory) {
             
             $this->assertTrue($factory === $factory1 || $factory === $factory2);
-        }
-    }
-    
-    public function testAddNullFile()
-    {
-        $manager = new ConfigManager();
-        
-        try {
-            $manager->addFile(null, null);
-            $this->fail('Expected exception.');
-        } catch(\InvalidArgumentException $e)
-        {
-            // Do nothing.
         }
     }
 }
