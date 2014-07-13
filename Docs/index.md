@@ -2,7 +2,7 @@
 
 Welcome to the Documentation for the Silex ConfigServiceProvider, built by Affiniti Development.  This documentation is relevant for the following version:
 
-    v0.1.1
+    master
 
 Contributions are welcome for the documentation.  Submit a issue or pull request if you think something should be added or changed!
 

@@ -1,6 +1,6 @@
 # Affiniti ConfigServiceProvider
 ---
-**Version**: `v0.1.1`
+**Version**: `master`
 
 The ConfigServiceProvider, built by Affiniti Development, is a Silex Service Provider which adds support for the Symfony Config Component.  It provides shortcuts to all of the functionality of the Config component - features include:
 
